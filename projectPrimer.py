@@ -19,12 +19,14 @@ words = set(words)
 # test word to see if permutations are in set
 # start with an empty set and a word
 result = set()
-i = len('aeestrhar')
+inp = [''.join(l) for l in wordGen.genWord()]
+print(inp)
+i = len(inp)
 
 # While the set is empty i.e. no anagrams found
 
 while len(result) <= 0 and i > 2:
-    anag = [''.join(p) for p in permutations('aeestrhar', i)]
+    anag = [''.join(p) for p in permutations(inp, i)]
     anag = set(anag)
 
     result = words.intersection(anag)
@@ -37,6 +39,10 @@ lister = wordGen.getLetters()
 
 print(lister)
 print(len(lister))
+
+twist = wordGen.genWord()
+print(twist)
+
 #END TEST CODE
 # Test
 
