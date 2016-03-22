@@ -9,9 +9,14 @@ for x in allwords:
 
 words = set(words)
 
-anag = [''.join(p) for p in permutations('andrew', 5)]
-anag = set(anag)
+result = set()
+i = len('lephnat')
+while len(result) <= 0 and i > 2:
+    anag = [''.join(p) for p in permutations('lephnat', i)]
+    anag = set(anag)
 
-result = words.intersection(anag)
+    result = words.intersection(anag)
+    i = i - 1
+
 print(result)
 
