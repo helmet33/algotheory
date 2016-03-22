@@ -6,7 +6,11 @@ vowels = ( 'a', 'e', 'i', 'o', 'u' )
 consonants = ( 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x' 'y', 'z')
 
 
-# Use the scrabble English distribution of letters for the rest
+# Use the scrabble English distribution of letters for the letters.
+# Initial empty list and then append single letters or extend with list of letters as
+# warranted
+# Scrabble Distribution: https://en.wikipedia.org/wiki/Scrabble_letter_distributions#English
+# Excluded blank tiles as illegal in this context (Countdown) total 98 letters
 
 letters = list()
 
@@ -30,6 +34,15 @@ letters.extend(['k', 'j', 'x', 'q', 'z'])
 # Select vowels and consonants, remove from letters pool shuffle and pop remaining letters return word. 
 # Split to methods and import to runner
 random.shuffle(letters)
+
+# TEST CODE - test method for import - a known known
+def getLetters():
+    return letters
+
+# END TEST CODE
+
+
+
 
 
 
