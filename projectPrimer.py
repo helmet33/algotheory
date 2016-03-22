@@ -35,13 +35,13 @@ while len(result) <= 0 and i > 2:
 print(result)
 
 #TEST CODE - for import testing ( a known known)
-lister = wordGen.getLetters()
+#lister = wordGen.getLetters()
 
-print(lister)
-print(len(lister))
+#print(lister)
+#print(len(lister))
 
-twist = wordGen.genWord()
-print(twist)
+#twist = wordGen.genWord()
+#print(twist)
 
 #END TEST CODE
 # Test
