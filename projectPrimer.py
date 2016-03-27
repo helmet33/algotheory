@@ -1,21 +1,23 @@
 from itertools import permutations
 import wordGen
+import fileStuff
 
 # file stuff
-words =[]
-
-with open('wordlist.txt', 'r') as f:
-    allwords = f.readlines()
-print(f.closed)
-for x in allwords:
-    x = x.rstrip()
-    words.append(x)
-
-words = [word for word in words if len(word) <= 9 ]
-
+#words =[]
+#
+#with open('wordlist.txt', 'r') as f:
+#    allwords = f.readlines()
+#print(f.closed)
+#for x in allwords:
+#    x = x.rstrip()
+#    words.append(x)
+#
+#words = [word for word in words if len(word) <= 9 ]
+#
 # Convert list of words to set to ensure no duplicates
-words = set(words)
 
+#words = set(words)
+words = fileStuff.getDictionary()
 # test word to see if permutations are in set
 # start with an empty set and a word
 result = set()
