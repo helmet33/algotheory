@@ -16,20 +16,13 @@ consonants = ( 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 
 
 def genList():
     letters= list()
-    for i in range (0,12):
-        letters.append('e')
-    for i in range (0, 9):
-        letters.extend(['a', 'i'])
-    for i in range (0, 8):
-        letters.append('o')
-    for i in range (0,6):
-        letters.extend(['n','r','t'])
-    for i in range (0,4):
-        letters.extend(['l', 's', 'u', 'd'])
-    for i in range (0,3):
-        letters.append('g')
-    for i in range (0,2):
-        letters.extend(['b' , 'c', 'm', 'p', 'f', 'h', 'v', 'w', 'y'])
+    letters.extend(list('e' * 12))
+    letters.extend(['a', 'i'] * 9)
+    letters.extend(list('o' * 8))
+    letters.extend(['n','r','t'] * 6)
+    letters.extend(['l', 's', 'u', 'd']* 4)
+    letters.extend(list('g' * 3))
+    letters.extend(['b' , 'c', 'm', 'p', 'f', 'h', 'v', 'w', 'y']* 2)
     letters.extend(['k', 'j', 'x', 'q', 'z'])
     return letters
 
