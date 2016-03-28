@@ -30,9 +30,12 @@ def genList():
 # Select vowels and consonants, remove from letters pool shuffle and pop remaining letters return word. 
 # Split to methods and import to runner
 # random.shuffle(letters)
+
 lettersG = genList()
 # TEST CODE - test method for import - a known known
 def getLetters():
+    # Neccessary to copy list to avoid it emptying and also 
+    # to avoid regeneration
     letters = list(lettersG)
     return letters
 
@@ -46,7 +49,7 @@ def getConsnants(letPool):
     return c
 
 def genWord():
-    lets = genList()
+    lets = list(lettersG)
     word = []
     for i in range (0,3):
         v = random.choice(vowels)
