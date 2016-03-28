@@ -18,10 +18,11 @@ import fileStuff
 
 #words = set(words)
 words = fileStuff.getDictionary()
+
 # test word to see if permutations are in set
 # start with an empty set and a word
 result = set()
-inp = [''.join(l) for l in wordGen.genWord()]
+inp = wordGen.genWord()
 print(inp)
 i = len(inp)
 

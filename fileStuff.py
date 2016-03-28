@@ -4,7 +4,6 @@ def genDictionary(wFile):
 	words = []
 	with open(wFile, 'r') as f:
 		allwords = f.readlines()
-	print(f.closed)
 	for x in allwords:
     		x = x.rstrip()
     		words.append(x)
