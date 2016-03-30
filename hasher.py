@@ -3,10 +3,10 @@
 # I expect this to be faster but 
 # will not be consistent across iterations
 
-a = ['peter', 'paul', 'john', 'mary', 'yarm']
-
-mapper = dict()
-def encoder(a):
+# Encode the dictionary
+# Key is a hash of the sorted word 
+# and value is a set of words
+def encoder(a, mapper={}):
     for word in a:
         sortw = sorted(word)
         sortw = "".join(sortw)
@@ -14,11 +14,12 @@ def encoder(a):
         words = mapper.get(hashedw, set())
         words.update({word})
         mapper[hashedw] = words
+    return mapper
 
 
+# check the word is in the dictionary
 
-
-def checker(wrd):
+def checker(wrd, mapper):
     srtwrd = sorted(wrd)
     srtwrd = "".join(srtwrd)
     hshwrd = hash(srtwrd)
@@ -32,16 +33,16 @@ def  ifExist(x):
     else:
         return 0
 
-
-encoder(a)
+a = ['peter', 'paul', 'mary','ramy']
+v = encoder(a)
 b = ['john', 'james', 'joe', 'mary']
 for k in b:
-    x = checker(k)
+    x = checker(k, v)
     print("{0}: {1} :len {2}".format(k, x, ifExist(x)))
 
 
 
-demi = checker("seamus")
+demi = checker("seamus",v)
 
 print ("%s" % demi)
 

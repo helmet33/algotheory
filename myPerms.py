@@ -10,3 +10,5 @@ def permute(word, n):
         	# traverse rest of word and recur
             for combo in permute(word[i+1:],n-1):
                 yield [word[i]]+combo
+
+

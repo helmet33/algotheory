@@ -12,7 +12,7 @@ def permutations(iterable, r=None):
         return
     indices = list(range(n))
     cycles = list(range(n, n-r, -1))
-    print(cycles)
+    #print(cycles)
     yield tuple(pool[i] for i in indices[:r])
     while n:
         for i in reversed(range(r)):
@@ -28,5 +28,5 @@ def permutations(iterable, r=None):
         else:
             return
 
-a = list(permutations([0, 1, 2 ,3], 3))
+#a = list(permutations([0, 1, 2 ,3], 3))
 
