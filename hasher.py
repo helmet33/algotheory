@@ -26,27 +26,26 @@ def checker(wrd, mapper):
     results = mapper.get(hshwrd, None)
     return results
 
-# Test code
-def  ifExist(x):
-    if x:
-        return len(x)
-    else:
-        return 0
+# Test code #
+# Functions and console print for testing
+#def  ifExist(x):
+#    if x:
+#        return len(x)
+#    else:
+#        return 0
 
-a = ['peter', 'paul', 'mary','ramy']
-v = encoder(a)
-b = ['john', 'james', 'joe', 'mary']
-for k in b:
-    x = checker(k, v)
-    print("{0}: {1} :len {2}".format(k, x, ifExist(x)))
-
-
-
-demi = checker("seamus",v)
-
-print ("%s" % demi)
+#a = ['peter', 'paul', 'mary']
+#v = encoder(a)
+#b = ['john', 'james', 'joe', 'mary']
+#for k in b:
+#    x = checker(k, v)
+#    print("{0}: {1} :len {2}".format(k, x, ifExist(x)))
 
 
+# Check a known false
+#demi = checker("seamus",v)
+
+#print ("%s" % demi)
 
 
     
