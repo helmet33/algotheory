@@ -1,8 +1,13 @@
 ### Garrett Jordan
-#### G00305145
-
-#### All scripts written and run using Python 3.51 (Anaconda version)
-
+##### G00305145
+----
+##### Module: Theory of Algorithms
+##### Course: BSc.(Hons) Software Development - Year 4
+##### Lecturer: Dr. Ian McLoughlin
+----
+##### GIT REPOSITORY FOR THIS PROJECT: https://github.com/helmet33/algotheory
+##### All scripts written and run using Python 3.51 (Anaconda version)
+----
 # Countdown Letters Game Solver
 
 
@@ -139,13 +144,21 @@ I initially used itertools permutations module to find all permutations. I have 
 
 ## Efficiency
 The decision to use combinations instead of permutations coupled with the use of a hash look up on the Dict file really improved performance as is evidenced from the timings in Results section below.
+
 The formula for calculating combinations is:
+
  C(n,r) = n! / r! (n - r)!
+ 
  The formula for calculating permutations is:
+ 
  P(n,r) = n! / (n - r)!
- where n is the number of elements and r is the subset size. In 9 letter words alone the following calculations emphasis the improvements:
+ 
+where n is the number of elements and r is the subset size. In 9 letter words alone the following calculations emphasis the improvements:
+ 
  P(9,9)= 362880
+ 
  C(9,9)= 1
+ 
  Thats 362879 less lookups by using combinations.
 
  Using a hashed key in the Dict allows for a constant time O(1) lookup of the hashed value of a word. The set.intersection(set2) method needs to check each value in the smaller set exists in the larger set.
