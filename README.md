@@ -12,8 +12,8 @@
 
 
 ## Introduction
-Countdown is a word and number puzzle game on afternoon TV. It is particularly loved by students, the unemployed and the retired.  Another version called Two Cats do Countdown is a more adult version screened after the watershed.
-I am familiar with the show Countdown and particularly the show Two Cats do Countdown. I did however reference the [Countdown wiki][1] for a breakdown of the rules and permissible words.
+Countdown is a word and number puzzle game on afternoon TV. It is particularly loved by students, the unemployed and the retired.  Another version called 8 Out of 10 Cats do Countdown is a more adult version screened after the watershed.
+I am familiar with the show Countdown and particularly the show 8 Out of 10 Cats do Countdown. I did however reference the [Countdown wiki][1] for a breakdown of the rules and permissible words.
 
 
 ## Rules
