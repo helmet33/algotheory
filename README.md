@@ -9,7 +9,7 @@
 
 ## Introduction
 I am familiar with the show Countdown and particularly the show Two Cats do Countdown. I did however reference the COUNTDOWN wiki for a breakdown of the rules and permissible words.
-Google gave me two relevant results on the first page, these are [Cool Project name][2] and [Cool Solver][3].
+
 
 ## Rules
 The following rules were adhered to:
@@ -29,7 +29,7 @@ Additionally:
 
 ## Words list
 My words lists is in the files wordlist.txt and wordslistMoby.txt in the GitHub repository.
-I got my words list from the Linux Moby list from this  [website] and from a second year project in Data Structures and Algorithms. The Moby dictionary contains 354934 words and the wordlist dictionary contains 69905 words. Both dictionaries provide more words then the 3000 available at the Oxford English Dictionary site.
+I got my words list from the Linux Moby list from this  [website][1] and from a second year project in Data Structures and Algorithms. The Moby dictionary contains 354934 words and the wordlist dictionary contains 69905 words. Both dictionaries provide more words then the 3000 available at the Oxford English Dictionary site.
 
 ## Initial approach
 I am familiar with the show Countdown and initially concentrated not on the rules but on simply finding permutations of given letters in a list of know words.
@@ -70,7 +70,7 @@ I have left the original set method in the file. It has however been commented o
         i = i - 1
 ```
 ### myPerms.py
-I decided to research combinations instead of the itertools permutations module. The method permute takes a list and a number the number is the length of required unique combination. Combinations are efficient when we are sorting the output. The method recurs over the word combining the first letter with combinations of the following letters. Once the first letter is combined with the following letters it is no longer needed and the next letter is combined with the remaining letters. This happens until the end of the word. This method is discussed in depth in this [Stack Overflow post](2):
+I decided to research combinations instead of the itertools permutations module. The method permute takes a list and a number the number is the length of required unique combination. Combinations are efficient when we are sorting the output. The method recurs over the word combining the first letter with combinations of the following letters. Once the first letter is combined with the following letters it is no longer needed and the next letter is combined with the remaining letters. This happens until the end of the word. This method is discussed in depth in this [Stack Overflow post][2]:
 ```python
 def permute(word, n):
 	# if we reach zero return empty list
@@ -99,7 +99,7 @@ Reads a flies in to a set. It contains 2 methods that combine to return a Set of
 The word is checked to be 9 letters or less and not a proper noun i.e. not capitalized. This reduces the search space and processing in later steps as it ensures that the words are legal.
 
 ### wordGen.py
-In the wordGen.py file I create to lists; vowels and consonants. I then use a method to append letters to a list based on the [scrabble distribution](3) of letters:
+In the wordGen.py file I create to lists; vowels and consonants. I then use a method to append letters to a list based on the [scrabble distribution][3] of letters:
 ```python
 letters= list()
     letters.extend(list('e' * 12))
