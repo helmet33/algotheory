@@ -231,7 +231,7 @@ In conclusion using combinations instead of combinations and using a hash Dict f
 
 
 ## References
-I made use of the Python 3.5 documentation for Sets, Lists and Dicts. I also reference the itertools library.
+I made use of the Python 3.5 documentation for Sets, Lists and Dicts. I also reference the itertools library. All other references above are linked to source and are visible when viewing the raw markdown.
 
 [1]: http://wiki.apterous.org/Main_Page
 
