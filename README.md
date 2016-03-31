@@ -1,7 +1,6 @@
 ### Garrett Jordan
 #### G00305145
 
-#### GIT REPOSITORY FOR THIS PROJECT: https://github.com/helmet33/algotheory
 #### All scripts written and run using Python 3.51 (Anaconda version)
 
 # Countdown Letters Game Solver
