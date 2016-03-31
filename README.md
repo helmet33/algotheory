@@ -24,18 +24,18 @@ The following rules were adhered to:
 
 Additionally:
 * I use the scrabble distribution of letters. This ensures that the most common letters in the English language occur more often then those rarely used. This means that there is a pool of 98 letters from which to generate the 9 letter selection. The inclusion of a weighted letters pool means that there is rarely a case of 3 letter words only.
-* I decided to make the implementation more like the game in that it returns when  the longest word or collection of words is found. If it finds 2 8 letter words it returns those words and stops searching for  smaller words.
+* I decided to make the implementation more like the game in that it returns when  the longest word or collection of words is found. If it finds 2 * 8 letter words it returns those words and stops searching for  smaller words.
 
 
 
 ## Words list
 My words lists is in the files wordlist.txt and wordslistMoby.txt in the GitHub repository.
-I got my words list from the Linux Moby list from this  [website][2] and from a second year project in Data Structures and Algorithms. The Moby dictionary contains 354934 words and the wordlist dictionary contains 69905 words. Both dictionaries provide more words then the 3000 available at the Oxford English Dictionary site.
+I got my words list from the Linux Moby list from this  [website][2] and from a second year project in Data Structures and Algorithms. The Moby dictionary contains 354934 words and the wordlist dictionary contains 69905 words. Both dictionaries provide more words than the 3000 available at the Oxford English Dictionary site.
 
-## Initial approach
-I am familiar with the show Countdown and initially concentrated not on the rules but on simply finding permutations of given letters in a list of know words.
-I initially wanted to examine out the efficiency of some of the Python built in data structures and functions. Specifically I wanted to investigate the use of the Python native implementation of the  Set data structure. If a set 𝐴 contains all known words and another smaller set 𝐵 contains all permutations of a given set of letters then then 𝐴 ∩ 𝐵 is the set containing permutations that are actual words.
-I initially used the itertools module to return the list of permutations for given input. This library is appears to be the de facto standard for doing work with iterators in Python. I was not content to just use it however, and researched the source code and method used by itertools' permutations module, which I discuss when referencing the iterToolsSource.py file below.
+## Approach
+I am familiar with the show Countdown and initially concentrated not on the rules but on simply finding permutations of given letters in a list of known words.
+I initially wanted to examine the efficiency of some of the Python built-in data structures and functions. Specifically I wanted to investigate the use of the Python native implementation of the Set data structure. If a set 𝐴 contains all known words and another smaller set 𝐵 contains all permutations of a given set of letters then then 𝐴 ∩ 𝐵 is the set containing permutations that are actual words.
+I initially used the itertools module to return the list of permutations for given input. This library appears to be the de facto standard for doing work with iterators in Python. I was not content to just use it however, and researched the source code and method used by itertools' permutations module, which I discuss when referencing the iterToolsSource.py file below.
 
 Although the Set approach and itertools work I decided to research using combinations instead of permutations and this is the solution as implemented. I decided to sort words and store each word in a Dict with the hash of the sorted word as key and word added to a set as the value. Combinations were then sorted, hashed and checked against the dictionary.
 
@@ -71,7 +71,7 @@ I have left the original set method in the file. It has however been commented o
         i = i - 1
 ```
 ### myPerms.py
-I decided to research combinations instead of the itertools permutations module. The method permute takes a list and a number the number is the length of required unique combination. Combinations are efficient when we are sorting the output. The method recurs over the word combining the first letter with combinations of the following letters. Once the first letter is combined with the following letters it is no longer needed and the next letter is combined with the remaining letters. This happens until the end of the word. This method is discussed in depth in this [Stack Overflow post][3]:
+I decided to research combinations instead of the itertools permutations module. The method permute takes a list and a number, the number is the length of required unique combination. Combinations are efficient when we are sorting the output. The method recurs over the word combining the first letter with combinations of the following letters. Once the first letter is combined with the following letters it is no longer needed and the next letter is combined with the remaining letters. This happens until the end of the word. This method is discussed in depth in this [Stack Overflow post][3]:
 ```python
 def permute(word, n):
 	# if we reach zero return empty list
@@ -97,11 +97,11 @@ def checker(wrd, mapper):
 ## Preprocessing
 Before I check for matches I make use of two files during preprocessing:
 1. fileStuff.py - reads in and processes words from my selected word lists. Cleans up white space and returns a set of unique words. Proper nouns and words over 9 letters are excluded  at this stage.
-2. wordGen.py - Creates a group of 9 letters as outlined in the rules section. Uses the scrabble distribution of letters as a pool and selects 3 vowels, 4 consonants and 2 other random letters. This returns a list from which we will endeavor to find legal words.
+2. wordGen.py - creates a group of 9 letters as outlined in the rules section. Uses the scrabble distribution of letters as a pool and selects 3 vowels, 4 consonants and 2 other random letters. This returns a list from which we will endeavor to find legal words.
 3. hasher.py - creates a hash keyed Python Dict for my 2nd and final solution.
 
 ### fileStuff.py
-Reads a flies in to a set. It contains 2 methods that combine to return a Set of words. List comprehension is used, as follows, to ensure that the words are legal:
+Reads a flies into a set. It contains 2 methods that combine to return a Set of words. List comprehension is used, as follows, to ensure that the words are legal:
 ```python
 # Words are less then or equal to 9 and uncapitalised
     words = [word for word in words if len(word) <= 9 and words[0].islower()]
@@ -111,7 +111,7 @@ Reads a flies in to a set. It contains 2 methods that combine to return a Set of
 The word is checked to be 9 letters or less and not a proper noun i.e. not capitalized. This reduces the search space and processing in later steps as it ensures that the words are legal.
 
 ### wordGen.py
-In the wordGen.py file I create to lists; vowels and consonants. I then use a method to append letters to a list based on the [scrabble distribution][4] of letters:
+In the wordGen.py file I create two lists: vowels and consonants. I then use a method to append letters to a list based on the [scrabble distribution][4] of letters:
 ```python
 letters= list()
     letters.extend(list('e' * 12))
@@ -143,12 +143,12 @@ The formula for calculating combinations is:
  C(n,r) = n! / r! (n - r)!
  The formula for calculating permutations is:
  P(n,r) = n! / (n - r)!
- where n is the number of elements and r is the subset size. in 9 letter words alone the following calculations emphasis the improvements:
+ where n is the number of elements and r is the subset size. In 9 letter words alone the following calculations emphasis the improvements:
  P(9,9)= 362880
  C(9,9)= 1
  Thats 362879 less lookups by using combinations.
 
- Using a hashed key in the Dict allows for a constant time O(1) lookup of the hashed value of a word. The set.intersection(set2) method needs to check if the value each value in the smaller set exists in the larger set.
+ Using a hashed key in the Dict allows for a constant time O(1) lookup of the hashed value of a word. The set.intersection(set2) method needs to check each value in the smaller set exists in the larger set.
 
 ## Running and Results
 All scripts are written in Python 3. Testing was done via IPython.
@@ -225,7 +225,7 @@ python -mtimeit -s'import timeTest' 'timeTest.mypermutes()'
 ```
 This proves, without doubt, that the combinations method is far quicker then using permutations.
 
-In conclusion using combinations instead of combinations and using a hash Dict for storage and lookup is the most efficient method I have come across. The coupling use of combinations means that the additional overhead of hashing is redundant due to the significant reduction in items to be hashed.
+In conclusion using combinations instead of permutation and using a hash Dict for storage and lookup is the most efficient method I have come across. The coupling use of combinations means that the additional overhead of hashing is redundant due to the significant reduction in items to be hashed.
 
 
 
