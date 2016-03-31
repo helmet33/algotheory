@@ -18,6 +18,7 @@ I am familiar with the show Countdown and particularly the show Two Cats do Coun
 
 ## Rules
 The following rules were adhered to:
+
 1. A selection of 9 letters is used from which to find words.
 2. The selection must contain at least 3 vowels.
 3. The selection must include at least 4 consonants.
@@ -100,6 +101,7 @@ def checker(wrd, mapper):
 ```
 ## Preprocessing
 Before I check for matches I make use of two files during preprocessing:
+
 1. fileStuff.py - reads in and processes words from my selected word lists. Cleans up white space and returns a set of unique words. Proper nouns and words over 9 letters are excluded  at this stage.
 2. wordGen.py - creates a group of 9 letters as outlined in the rules section. Uses the scrabble distribution of letters as a pool and selects 3 vowels, 4 consonants and 2 other random letters. This returns a list from which we will endeavor to find legal words.
 3. hasher.py - creates a hash keyed Python Dict for my 2nd and final solution.
